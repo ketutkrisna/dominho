@@ -279,8 +279,6 @@ $(document).ready(function(){
 			setTimeout(function() {
 				swiper1.autoplay.stop();
 				swiper1.removeAllSlides();
-
-				console.log(acak1)
 			}, 3000);
 			setTimeout(function() {
 			swiper1.addSlide(1, array[acak1]);
@@ -314,8 +312,6 @@ $(document).ready(function(){
 			setTimeout(function() {
 				swiper2.autoplay.stop();
 				swiper2.removeAllSlides();
-
-				console.log(acak2)
 			}, 3500);
 			setTimeout(function() {
 			swiper2.addSlide(1, array[acak2]);
@@ -352,7 +348,6 @@ $(document).ready(function(){
 				$('#rell')[0].pause();
 				$('#start').text('Spin');
 				$('.changebet').removeAttr('disabled');
-				console.log(acak3)
 			}, 4000);
 			setTimeout(function() {
 			swiper3.addSlide(1, array[acak3]);
@@ -403,7 +398,7 @@ $(document).ready(function(){
 					$('#start').show();
 					setTimeout(function() {
 						$('#relljpfff')[0].pause();
-					}, 3700);
+					}, 7500);
 				}, 1000);
 			}, 4500);
 		}else if(acak1 == acak2){
@@ -448,12 +443,12 @@ $(document).ready(function(){
 			$('.mychip').text(rubah(localStorage.getItem('mychip')));
 			if(Number(updatechip)<100000){
 				setTimeout(function() {
+					$('.changebet').attr('disabled','on');
 					$('.reward2m').show();
 					$('#tunggu').show();
 					$('#start').hide();
 					$('#start').addClass('btn-secondary');
-					$('.changebet').attr('disabled','on');
-				}, 4500);
+				}, 4600);
 			}else{
 				setTimeout(function() {
 					$('#tunggu').hide();
