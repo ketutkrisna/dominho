@@ -115,16 +115,53 @@
           </select>
           </div>
           <div>
-           <button class="btn btn-sm btn-warning shadow" id="start" style="color:#616161;">Spin</button>
-           <button class="btn btn-sm btn-secondary shadow" id="tunggu">Spin</button>
+          <div class="btn-group" id="starts">
+            <button type="button" class="btn btn-warning shadow dropdown-toggle dropdown-toggle-split disablebtn" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius:5px 0 0 5px;">
+              <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <button class="btn btn-warning shadow" id="start" style="color:#616161;border-radius:0 5px 5px 0;">Spin</button>
+            <ul class="dropdown-menu p-0" style="box-shadow:3px 3px 4px rgba(0,0,0,.3);border-radius:10px;">
+              <li><a  style="border-radius:10px 10px 0 0;" class="dropdown-item spinotomatis" href="#!" data-spinotomatis="10">10</a></li>
+              <li><a class="dropdown-item spinotomatis" href="#!" data-spinotomatis="100">100</a></li>
+              <li><a class="dropdown-item spinotomatis" href="#!" data-spinotomatis="500">500</a></li>
+              <li><a  style="border-radius:0px 0px 10px 10px;"class="dropdown-item spinotomatis" href="#!" data-spinotomatis="-">@@</a></li>
+            </ul>
+          </div>
+          <div class="btn-group" id="tunggus">
+            <button type="button" class="btn btn-secondary shadow dropdown-toggle dropdown-toggle-split" style="border-radius:5px 0 0 5px;" id="btndropdown">
+              <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <button class="btn btn-sm btn-secondary shadow p-0" id="tunggu">Stop</button>
+          </div>
+          <div class="btn-group" id="stops">
+            <button type="button" class="btn btn-secondary shadow dropdown-toggle dropdown-toggle-split" style="border-radius:5px 0 0 5px;" id="btndropdownstop">
+              <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <button class="btn btn-sm btn-secondary shadow p-0" id="stop">Stop</button>
+          </div>
            <!-- <button class="btn btn-sm btn-secondary shadow" id="lagi">Spin</button> -->
           </div>
          </div>
          <!-- <button id="reward">Reward</button> -->
         </div> 
 
+        <!-- <div class="row">
+        <div class="input-group mb-3 d-flex align-items-center justify-content-end" style="height:40px;">
+          <select class="spincount" id="inputGroupSelect" style="height: 40px;width:50px;">
+            <option selected="" value="">Pilih</option>
+            <option value="10">10</option>
+            <option value="100">100</option>
+            <option value="unli">Unli</option>
+          </select>
+          <label class="input-group-text m-0 btn btn-primary spinup" for="inputGroupSelect02" style="height:40px;font-weight:bold;">Spin</label>
+        </div>
+        </div> -->
+
         <audio id="rell" loop>
           <source src="audio/rell.wav" type="audio/wav">
+        </audio>
+        <audio id="rellbg" loop autoplay>
+          <source src="audio/bgfinal.mp3" type="audio/mpeg">
         </audio>
         <audio id="rellfff">
           <source src="audio/csfff.mp3" type="audio/mpeg">
@@ -144,6 +181,11 @@
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="js/javascript.js"></script>
+    <script>
+      // var audio = $("#rellfff")[0];
+        // var audio = new Audio('audio/bgfinal.mp3');
+        //   audio.play();
+    </script>
 
   </body>
 </html>

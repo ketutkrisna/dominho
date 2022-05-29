@@ -17,7 +17,6 @@ var fotoglaki=['<img class="fhover" src="images/p1.jpg">','<img class="fhover" s
 var fotogcewe=['<img class="fhover" src="images/c1.jpg">','<img class="fhover" src="images/c2.jpg">','<img class="fhover" src="images/c3.jpg">','<img class="fhover" src="images/c4.jpg">','<img class="fhover" src="images/c5.jpg">','<img class="fhover" src="images/c6.jpg">','<img class="fhover" src="images/c7.jpg">','<img class="fhover" src="images/c8.jpg">'];
 var time=[3000,4000,5000,6000,7000,8000];
 
-
 var roll1= Math.round(Math.random()*7);
 var roll2= Math.round(Math.random()*7);
 var roll3= Math.round(Math.random()*7);
@@ -44,6 +43,8 @@ swiper3.addSlide(1, array[roll3]);
 
 
 $(document).ready(function(){
+
+
 
 
 	// $('#tulis').on('click',function(){
@@ -172,8 +173,9 @@ $(document).ready(function(){
 
 	}else{
 		localStorage.setItem('mychip',0);
-		$('#tunggu').show();
-		$('#start').hide();
+		$('#tunggus').show();
+		$('#stops').hide();
+		$('#starts').hide();
 	}
 	// localStorage.removeItem('mychip');
 
@@ -186,14 +188,15 @@ $(document).ready(function(){
 	$('.mychip').text(rubah(localStorage.getItem("mychip")));
 	if(Number(localStorage.getItem("mychip"))<100000){
 		$('.reward2m').show();
-		$('#tunggu').show();
-		$('#start').hide();
+		$('#tunggus').show();
+		$('#stops').hide();
+		$('#starts').hide();
 		$('#start').removeClass('btn-primary');
 		$('#start').addClass('btn-secondary');
 		$('.changebet').attr('disabled','on');
 	}else{
-		$('#tunggu').hide();
-		$('#start').show();
+		$('#tunggus').hide();
+		$('#starts').show();
 		$('.reward2m').hide();
 		$('.changebet').removeAttr('disabled');
 	}
@@ -207,19 +210,22 @@ $(document).ready(function(){
 		bet = $('.changebet').val();
 		if(Number(bet) > Number(localStorage.getItem('mychip'))){
 			alert('Turunkan bet anda!!!');
-			$('#tunggu').show();
-			$('#start').hide();
+			$('#tunggus').show();
+			$('#starts').hide();
+			$('#stops').hide();
 		}else{
-			$('#tunggu').hide();
-			$('#start').show();
+			$('#tunggus').hide();
+			$('#starts').show();
 		}
 	});
 	
 	$('#reward2m').on('click',function(){
 		hitung = 0;
 		localStorage.setItem("mychip", 2000000);
-		$('#tunggu').hide();
-		$('#start').show();
+		$('#tunggus').hide();
+		$('#stops').hide();
+		$('#starts').show();
+		$('#start').text('Spin');
 		$('.reward2m').hide();
 		$('.changebet').removeAttr('disabled');
 		$('#start').removeClass('btn-secondary');
@@ -227,18 +233,103 @@ $(document).ready(function(){
 		$('.mychip').text(rubah(localStorage.getItem("mychip")));
 	});
 
-	// $('#tunggu').hide();
+	// $('#tunggus').hide();
+	// setInterval(function(){
+	// 	$('#start').click();
+	// 	console.log($('#start').click());
+	// },1000);
+	var spincount = 0;
+	$('.spinotomatis').on('click',function(){
+		$('.changebet').attr('disabled','on');
+		$('.disablebtn').attr('disabled','on');
+		spincount=$(this).data('spinotomatis');
+		$('#starts').hide();
+		$('#tunggus').show();
+		const inter= setInterval(function(){
+			$('#start').click();
+			spincount--;
+			$('#btndropdownstop').addClass('btn-danger');
+			$('#tunggus').hide();
+			$('#starts').hide();
+			$('#stops').show();
+			$('#stop').addClass('btn-danger');
+			console.log(spincount);
+			if(spincount<1){
+				$('#stop').text('Stop');
+				var timeoutstop = setTimeout(function() {
+					$('#tunggu').text('Stop');
+					$('#stop').text('Stop');
+					$('#starts').show();
+					$('#tunggus').hide();
+					$('#stops').hide();
+					clearInterval(inter);
+					$('.disablebtn').removeAttr('disabled');
+				}, 4000);
+			}else{
+				var timeup = setTimeout(function() {
+					$('#tunggu').text('Stop '+spincount);
+					$('#stops').hide();
+					$('#tunggus').show();
+					$('#starts').hide();
+				}, 4000);
+				$('#stop').text('Stop '+spincount);
+				$('#stop').on('click',function(){
+					clearInterval(inter);
+					clearTimeout(timeoutstop);
+					clearTimeout(timeup);
+					spincount=0;
+					console.log(spincount);
+					$('#stops').hide();
+					$('#tunggus').show();
+					$('#tunggu').text('Stop');
+					$('#stop').text('Stop');
+					setTimeout(function() {
+					$('#tunggus').hide();
+					$('#starts').show();
+					$('.disablebtn').removeAttr('disabled');
+					$('.changebet').removeAttr('disabled');
+					}, 2200);
+				});
+				// if(spincount<1){
+				// 	$('#tunggu').text('Stop');
+				// }else{
+				// setTimeout(function() {
+				// 	$('#tunggu').text('Stop '+spincount);
+				// 	$('#stops').hide();
+				// 	$('#tunggus').show();
+				// 	$('#starts').hide();
+				// }, 4800);
+				// }
+			}
+		},4200);
+
+
+	});
+
+	// $('.spinup').on('click',function(){
+		// const inter= setInterval(function(){
+		// 	$('#start').click();
+		// 	spincount--;
+		// 	console.log(spincount);
+		// 	if(spincount<1){
+		// 		clearInterval(inter);
+		// 	}
+		// },5000);	
+	// })
+	// console.log(spincount);
+	$('#stops').hide();
 	$('.lihat').hide();
 	$('#api').html('');
 	$('#start').on('click',function(){
+		$('#tunggu').text('Stop');
 	if(Number(bet) > Number(localStorage.getItem('mychip'))){
 		alert('Turunkan bet anda!!!');
-		$('#tunggu').show();
-		$('#start').hide();
+		$('#tunggus').show();
+		$('#starts').hide();
 		return false;
 	}else{
-		$('#tunggu').hide();
-		$('#start').show();
+		$('#tunggus').hide();
+		$('#starts').show();
 	}
 	if(Number(localStorage.getItem('mychip'))<100000){
 		setTimeout(function() {
@@ -257,15 +348,15 @@ $(document).ready(function(){
 			transition:'.3s'
 		});
 		$('#tulis').text('Putaran ke-'+hitung);
-		var acak1= Math.round(Math.random()*7);
-		var acak2= Math.round(Math.random()*7);
-		var acak3= Math.round(Math.random()*7);
+		var acak1= Math.round(Math.random()*4);
+		var acak2= Math.round(Math.random()*4);
+		var acak3= Math.round(Math.random()*4);
 
 		$('.changebet').attr('disabled','on');
 
 		// $('#no1,#no2,#no3').text('');
-		$('#tunggu').show();
-		$('#start').hide();
+		$('#tunggus').show();
+		$('#starts').hide();
 		setTimeout(function() {
 			$('#rell')[0].play();
 		}, 200);
@@ -371,7 +462,9 @@ $(document).ready(function(){
 				swiper3.removeAllSlides();
 				$('#rell')[0].pause();
 				$('#start').text('Spin');
-				$('.changebet').removeAttr('disabled');
+				if(spincount<1){
+					$('.changebet').removeAttr('disabled');
+				}
 			}, 3000);
 			setTimeout(function() {
 				swiper3.addSlide(1, array[acak3]);
@@ -409,6 +502,7 @@ $(document).ready(function(){
 				$('#relljpfff')[0].play();
 				$('#tulis').text(rubah(betkaliitem));
 				// $('.mychip').text(rubah(localStorage.getItem('mychip')));
+				// $('#start').show();
 				setTimeout(function() {
 				$('#no1 img').css({
 					transform: 'scale(1.2) rotate(20deg)',
@@ -426,16 +520,16 @@ $(document).ready(function(){
 
 				if(Number(bet) > Number(localStorage.getItem('mychip'))){
 					alert('Turunkan bet anda!!!');
-					$('#tunggu').show();
-					$('#start').hide();
+					$('#tunggus').show();
+					$('#starts').hide();
 					return false;
 				}
 				setTimeout(function() {
 					$('#api').html('<img src="images/api.gif">');
 					$('#lihat').fadeIn();
 					$('#jumlahjp').text(rubah(betkaliitem));
-					$('#tunggu').hide();
-					$('#start').show();
+					$('#tunggus').hide();
+					$('#starts').show();
 					setTimeout(function() {
 						$('#relljpfff')[0].pause();
 					}, 7500);
@@ -451,7 +545,7 @@ $(document).ready(function(){
 				var updatechip = Number(localStorage.getItem('mychip'))+Number(betkaliitem);
 				localStorage.setItem('mychip',updatechip);
 				$('.mychip').text(rubah(localStorage.getItem('mychip')));
-
+				// $('#start').show();
 				$('#no1 img').css({
 					transform: 'scale(1.2) rotate(20deg)',
 					transition:'.4s'
@@ -467,16 +561,15 @@ $(document).ready(function(){
 
 				if(Number(bet) > Number(localStorage.getItem('mychip'))){
 					alert('Turunkan bet anda!!!');
-					$('#tunggu').show();
-					$('#start').hide();
+					$('#tunggus').show();
+					$('#starts').hide();
 					return false;
-				}else{
-					setTimeout(function() {
-						$('#tunggu').hide();
-						$('#start').show();
-						// $('#rellfff')[0].pause();
-					}, 1000);
 				}
+				setTimeout(function() {
+					$('#tunggus').hide();
+					$('#starts').show();
+					// $('#rellfff')[0].pause();
+				}, 1000);
 			}, 3500);
 		}else{
 			var updatechip = Number(localStorage.getItem('mychip'))-Number(bet);
@@ -486,14 +579,14 @@ $(document).ready(function(){
 				setTimeout(function() {
 					$('.changebet').attr('disabled','on');
 					$('.reward2m').show();
-					$('#tunggu').show();
-					$('#start').hide();
-					$('#start').addClass('btn-secondary');
+					$('#tunggus').show();
+					$('#starts').hide();
+					$('#starts').addClass('btn-secondary');
 				}, 3600);
 			}else{
 				setTimeout(function() {
-					$('#tunggu').hide();
-					$('#start').show();
+					$('#tunggus').hide();
+					$('#starts').show();
 				}, 3800);
 			}
 
@@ -505,7 +598,7 @@ $(document).ready(function(){
 		// console.log(acak2);
 		// console.log(acak3);
 		// $('#no1,#no2,#no3').text('');
-		// $('#tunggu').show();
+		// $('#tunggus').show();
 		// $('#rell')[0].play();
 
 		// $('#no1,#no2,#no3').addClass('animasi');
@@ -522,7 +615,7 @@ $(document).ready(function(){
 		// 	$('#rell')[0].pause();
 		// 	$('#no3').removeClass('animasi');
 		// 	$('#no3').html(array[acak3]);
-		// 	$('#tunggu').hide();
+		// 	$('#tunggus').hide();
 		// 	$('#start').text('Lagi');
 		// }, 4000);
 
