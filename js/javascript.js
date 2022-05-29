@@ -18,9 +18,26 @@ var fotogcewe=['<img class="fhover" src="images/c1.jpg">','<img class="fhover" s
 var time=[3000,4000,5000,6000,7000,8000];
 
 
-// var roll= Math.round(Math.random()*8);
+var roll1= Math.round(Math.random()*7);
+var roll2= Math.round(Math.random()*7);
+var roll3= Math.round(Math.random()*7);
 var mulai=document.getElementById('mulai');
 var putar=document.getElementById('putar');
+
+const swiper1 = new Swiper('.swiper1', {
+          direction: 'vertical',
+		});
+swiper1.addSlide(1, array[roll1]);
+
+const swiper2 = new Swiper('.swiper2', {
+          direction: 'vertical',
+		});
+swiper2.addSlide(1, array[roll2]);
+
+const swiper3 = new Swiper('.swiper3', {
+          direction: 'vertical',
+		});
+swiper3.addSlide(1, array[roll3]);
 
 
 
@@ -259,30 +276,34 @@ $(document).ready(function(){
 			  direction: 'vertical',
 			  loop: true,
 			  effect: 'slide',
-			  speed: 200,
+			  speed: 100,
 			  simulateTouch: false,
+			  noSwipingClass:'swiper-no-swiping',
 			  autoplay: {
-			   delay: 10,
+			   delay: 1,
 			   reverseDirection: true,
 			 },
 			});
+			// swiper1.loopDestroy()
 			swiper1.addSlide(1, [
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="4" src="images/love1.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="6" src="images/kamera.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="8" src="images/lawah.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="7" src="images/pisang.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="5" src="images/gift1.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="3" src="images/book.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="2" src="images/book2.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="9" src="images/tangan.gif"></div>'
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="4" src="images/love1.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="6" src="images/kamera.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="8" src="images/lawah.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="7" src="images/pisang.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="5" src="images/gift1.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="3" src="images/book.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="2" src="images/book2.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="9" src="images/tangan.gif"></div>'
 			]);
+
 			setTimeout(function() {
 				swiper1.autoplay.stop();
 				swiper1.removeAllSlides();
-			}, 3000);
+			}, 2000);
 			setTimeout(function() {
-			swiper1.addSlide(1, array[acak1]);
-			}, 3000);
+				swiper1.addSlide(1, array[acak1]);
+				swiper1.disable();
+			}, 2000);
 		}, 100);
 
 
@@ -292,30 +313,32 @@ $(document).ready(function(){
 			  direction: 'vertical',
 			  loop: true,
 			  effect: 'slide',
-			  speed: 200,
+			  speed: 100,
 			  simulateTouch: false,
+			  noSwipingClass:'swiper-no-swiping',
 			  autoplay: {
-			   delay: 10,
+			   delay: 1,
 			   reverseDirection: true,
 			 },
 			});
 			swiper2.addSlide(1, [
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="4" src="images/love1.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="6" src="images/kamera.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="8" src="images/lawah.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="7" src="images/pisang.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="5" src="images/gift1.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="3" src="images/book.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="2" src="images/book2.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="9" src="images/tangan.gif"></div>'
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="4" src="images/love1.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="6" src="images/kamera.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="8" src="images/lawah.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="7" src="images/pisang.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="5" src="images/gift1.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="3" src="images/book.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="2" src="images/book2.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="9" src="images/tangan.gif"></div>'
 			]);
 			setTimeout(function() {
 				swiper2.autoplay.stop();
 				swiper2.removeAllSlides();
-			}, 3500);
+			}, 2500);
 			setTimeout(function() {
-			swiper2.addSlide(1, array[acak2]);
-			}, 3500);
+				swiper2.addSlide(1, array[acak2]);
+				swiper2.disable();
+			}, 2500);
 			}, 300);
 
 
@@ -325,22 +348,23 @@ $(document).ready(function(){
 			  direction: 'vertical',
 			  loop: true,
 			  effect: 'slide',
-			  speed: 200,
+			  speed: 100,
 			  simulateTouch: false,
+			  noSwipingClass:'swiper-no-swiping',
 			  autoplay: {
-			   delay: 10,
+			   delay: 1,
 			   reverseDirection: true,
 			 },
 			});
 			swiper3.addSlide(1, [
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="4" src="images/love1.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="6" src="images/kamera.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="8" src="images/lawah.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="7" src="images/pisang.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="5" src="images/gift1.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="3" src="images/book.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="2" src="images/book2.gif"></div>',
-				'<div class="swiper-slide bg-info"><img class="ambiltambahchip" width="50" data-tambahchip="9" src="images/tangan.gif"></div>'
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="4" src="images/love1.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="6" src="images/kamera.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="8" src="images/lawah.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="7" src="images/pisang.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="5" src="images/gift1.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="3" src="images/book.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="2" src="images/book2.gif"></div>',
+				'<div class="swiper-slide bg-info swiper-no-swiping"><img class="ambiltambahchip swiper-no-swiping" width="50" data-tambahchip="9" src="images/tangan.gif"></div>'
 			]);
 			setTimeout(function() {
 				swiper3.autoplay.stop();
@@ -348,10 +372,11 @@ $(document).ready(function(){
 				$('#rell')[0].pause();
 				$('#start').text('Spin');
 				$('.changebet').removeAttr('disabled');
-			}, 4000);
+			}, 3000);
 			setTimeout(function() {
-			swiper3.addSlide(1, array[acak3]);
-			}, 4000);
+				swiper3.addSlide(1, array[acak3]);
+				swiper3.disable();
+			}, 3000);
 			}, 500);
 
 		// $('#no1,#no2,#no3').addClass('animasi');
@@ -382,7 +407,22 @@ $(document).ready(function(){
 				var updatechip = Number(localStorage.getItem('mychip'))+Number(betkaliitem);
 				localStorage.setItem('mychip',updatechip);
 				$('#relljpfff')[0].play();
+				$('#tulis').text(rubah(betkaliitem));
 				// $('.mychip').text(rubah(localStorage.getItem('mychip')));
+				setTimeout(function() {
+				$('#no1 img').css({
+					transform: 'scale(1.2) rotate(20deg)',
+					transition:'.4s'
+				});
+				$('#no2 img').css({
+					transform: 'scale(1.2) rotate(20deg)',
+					transition:'.4s'
+				});
+				$('#no3 img').css({
+					transform: 'scale(1.2) rotate(20deg)',
+					transition:'.4s'
+				});
+				}, 200);
 
 				if(Number(bet) > Number(localStorage.getItem('mychip'))){
 					alert('Turunkan bet anda!!!');
@@ -400,7 +440,7 @@ $(document).ready(function(){
 						$('#relljpfff')[0].pause();
 					}, 7500);
 				}, 1000);
-			}, 4500);
+			}, 3500);
 		}else if(acak1 == acak2){
 			var updatechip = Number(localStorage.getItem('mychip'))-Number(bet);
 			localStorage.setItem('mychip',updatechip);
@@ -413,13 +453,14 @@ $(document).ready(function(){
 				$('.mychip').text(rubah(localStorage.getItem('mychip')));
 
 				$('#no1 img').css({
-					transform: 'scale(1.4) rotate(15deg)',
-					transition:'.3s'
+					transform: 'scale(1.2) rotate(20deg)',
+					transition:'.4s'
 				});
 				$('#no2 img').css({
-					transform: 'scale(1.4) rotate(15deg)',
-					transition:'.3s'
+					transform: 'scale(1.2) rotate(20deg)',
+					transition:'.4s'
 				});
+				$('#tulis').text(rubah(betkaliitem));
 				setTimeout(function() {
 					$('#rellfff')[0].play();
 				}, 400);
@@ -433,10 +474,10 @@ $(document).ready(function(){
 					setTimeout(function() {
 						$('#tunggu').hide();
 						$('#start').show();
-						$('#rellfff')[0].pause();
-					}, 900);
+						// $('#rellfff')[0].pause();
+					}, 1000);
 				}
-			}, 4500);
+			}, 3500);
 		}else{
 			var updatechip = Number(localStorage.getItem('mychip'))-Number(bet);
 			localStorage.setItem('mychip',updatechip);
@@ -448,12 +489,12 @@ $(document).ready(function(){
 					$('#tunggu').show();
 					$('#start').hide();
 					$('#start').addClass('btn-secondary');
-				}, 4600);
+				}, 3600);
 			}else{
 				setTimeout(function() {
 					$('#tunggu').hide();
 					$('#start').show();
-				}, 4800);
+				}, 3800);
 			}
 
 			
