@@ -276,7 +276,7 @@ $(document).ready(function(){
 			  direction: 'vertical',
 			  loop: true,
 			  effect: 'slide',
-			  speed: 100,
+			  speed: 200,
 			  simulateTouch: false,
 			  noSwipingClass:'swiper-no-swiping',
 			  autoplay: {
@@ -313,7 +313,7 @@ $(document).ready(function(){
 			  direction: 'vertical',
 			  loop: true,
 			  effect: 'slide',
-			  speed: 100,
+			  speed: 200,
 			  simulateTouch: false,
 			  noSwipingClass:'swiper-no-swiping',
 			  autoplay: {
@@ -348,7 +348,7 @@ $(document).ready(function(){
 			  direction: 'vertical',
 			  loop: true,
 			  effect: 'slide',
-			  speed: 100,
+			  speed: 200,
 			  simulateTouch: false,
 			  noSwipingClass:'swiper-no-swiping',
 			  autoplay: {
