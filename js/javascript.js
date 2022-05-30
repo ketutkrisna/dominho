@@ -225,7 +225,7 @@ $(document).ready(function(){
 		$('#tunggus').hide();
 		$('#stops').hide();
 		$('#starts').show();
-		$('#start').text('Spin');
+		$('#start').text('SPIN');
 		$('.reward2m').hide();
 		$('.changebet').removeAttr('disabled');
 		$('#start').removeClass('btn-secondary');
