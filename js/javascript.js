@@ -240,7 +240,7 @@ $(document).ready(function(){
 			// console.log(typeof('-'));
 		// }
 
-	
+	var inter=0;
 	var spincount = 0;
 	$('.spinotomatis').on('click',function(){
 		var tipe = $(this).data('spinotomatis');
@@ -283,7 +283,7 @@ $(document).ready(function(){
 		}, 4000);
 	
 		// console.log(Number(spincount)-1)
-		var inter= setInterval(function(){
+		inter= setInterval(function(){
 			$('#start').click();
 			spincount--;
 			$('#btndropdownstop').addClass('btn-danger');
@@ -394,6 +394,12 @@ $(document).ready(function(){
 	$('#start').on('click',function(){
 		$('#tunggu').text('STOP');
 	if(Number(bet) > Number(localStorage.getItem('mychip'))){
+		if((spincount-1)>1){
+			clearInterval(inter);
+			spincount=1;
+			$('.changebet').removeAttr('disabled');
+			$('#starts').hide();
+		}
 		alert('Turunkan bet anda!!!');
 		$('#tunggus').show();
 		$('#starts').hide();
@@ -404,6 +410,11 @@ $(document).ready(function(){
 	}
 	if(Number(localStorage.getItem('mychip'))<100000){
 		setTimeout(function() {
+			if((spincount-1)>1){
+				clearInterval(inter);
+				spincount=1;
+				$('#tunggus').show();
+			}
 			$('.reward2m').show();
 			alert('Silahkan ambil Reward 2M anda!!');
 			return false;
