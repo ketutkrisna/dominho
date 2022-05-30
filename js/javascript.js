@@ -394,11 +394,13 @@ $(document).ready(function(){
 	$('#start').on('click',function(){
 		$('#tunggu').text('STOP');
 	if(Number(bet) > Number(localStorage.getItem('mychip'))){
+		$('.disablebtn').attr('disabled','on');
 		if((spincount-1)>1){
 			clearInterval(inter);
 			spincount=1;
 			$('.changebet').removeAttr('disabled');
 			$('#starts').hide();
+			$('.disablebtn').attr('disabled','on');
 		}
 		alert('Turunkan bet anda!!!');
 		$('#tunggus').show();
@@ -410,10 +412,12 @@ $(document).ready(function(){
 	}
 	if(Number(localStorage.getItem('mychip'))<100000){
 		setTimeout(function() {
+			$('.disablebtn').attr('disabled','on');
 			if((spincount-1)>1){
 				clearInterval(inter);
 				spincount=1;
 				$('#tunggus').show();
+				$('.disablebtn').attr('disabled','on');
 			}
 			$('.reward2m').show();
 			alert('Silahkan ambil Reward 2M anda!!');
