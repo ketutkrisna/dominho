@@ -253,32 +253,32 @@ $(document).ready(function(){
 		$('#stop').addClass('btn-danger');
 		$('#start').click();
 		if(tipe != 'unlimited'){
-			$('#tunggu').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;">'+(Number(spincount)-1)+'</span></sup>');
+			$('#tunggu').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;right:-13px;">'+(Number(spincount)-1)+'</span></sup>');
 		}else{
-			$('#tunggu').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;">&#8734;</span></sup>');
+			$('#tunggu').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;right:-13px;">&#8734;</span></sup>');
 		}
 		setTimeout(function() {
 			$('#tunggus').hide();
 			$('#stops').show();
 			if(tipe != 'unlimited'){
-				$('#stop').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;">'+(Number(spincount)-1)+'</span></sup>');
+				$('#stop').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;right:-13px;">'+(Number(spincount)-1)+'</span></sup>');
 			}else{
-				$('#stop').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;">&#8734;</span></sup>');
+				$('#stop').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;right:-13px;">&#8734;</span></sup>');
 			}
 		}, 200);
 
-		setTimeout(function() {
+		var kedipawal= setTimeout(function() {
 			$('#tunggus').show();
 			if(tipe != 'unlimited'){
-				$('#tunggu').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;">'+(Number(spincount)-1)+'</span></sup>');
+				$('#tunggu').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;right:-13px;">'+(Number(spincount)-1)+'</span></sup>');
 			}else{
-				$('#tunggu').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;">&#8734;</span></sup>');
+				$('#tunggu').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;right:-13px;">&#8734;</span></sup>');
 			}
 			$('#stops').hide();
 			if(tipe != 'unlimited'){
-				$('#stop').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;">'+(Number(spincount)-1)+'</span></sup>');
+				$('#stop').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;right:-13px;">'+(Number(spincount)-1)+'</span></sup>');
 			}else{
-				$('#stop').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;">&#8734;</span></sup>');
+				$('#stop').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;right:-13px;">&#8734;</span></sup>');
 			}
 		}, 4000);
 	
@@ -303,6 +303,28 @@ $(document).ready(function(){
 					clearInterval(inter);
 					$('.disablebtn').removeAttr('disabled');
 				}, 3800);
+				$('#stop').on('click',function(){
+					clearInterval(inter);
+					clearTimeout(timeoutstop);
+					// clearTimeout(timeup);
+					// console.log(spincount);
+					$('#stops').hide();
+					$('#tunggus').show();
+					if(tipe != 'unlimited'){
+						$('#tunggu').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;right:-13px;"></span></sup>');
+						$('#stop').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;right:-13px;"></span></sup>');
+					}else{
+						$('#tunggu').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;right:-13px;">&#8734;</span></sup>');
+						$('#stop').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;right:-13px;">&#8734;</span></sup>');
+					}
+					setTimeout(function() {
+					spincount=0;
+					$('#tunggus').hide();
+					$('#starts').show();
+					$('.disablebtn').removeAttr('disabled');
+					$('.changebet').removeAttr('disabled');
+					}, 3800);
+				});
 			}else{
 				var timeup = setTimeout(function() {
 					$('#stops').hide();
@@ -310,11 +332,11 @@ $(document).ready(function(){
 					$('#starts').hide();
 				}, 4000);
 				if(tipe != 'unlimited'){
-					$('#tunggu').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;">'+(Number(spincount)-1)+'</span></sup>');
-					$('#stop').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;">'+(Number(spincount)-1)+'</span></sup>');
+					$('#tunggu').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;right:-13px;">'+(Number(spincount)-1)+'</span></sup>');
+					$('#stop').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;right:-13px;">'+(Number(spincount)-1)+'</span></sup>');
 				}else{
-					$('#tunggu').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;">&#8734;</span></sup>');
-					$('#stop').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;">&#8734;</span></sup>');
+					$('#tunggu').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;right:-13px;">&#8734;</span></sup>');
+					$('#stop').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;right:-13px;">&#8734;</span></sup>');
 				}
 				
 				$('#stop').on('click',function(){
@@ -325,11 +347,11 @@ $(document).ready(function(){
 					$('#stops').hide();
 					$('#tunggus').show();
 					if(tipe != 'unlimited'){
-						$('#tunggu').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;">'+(Number(spincount)-1)+'</span></sup>');
-						$('#stop').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;">'+(Number(spincount)-1)+'</span></sup>');
+						$('#tunggu').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;right:-13px;">'+(Number(spincount)-1)+'</span></sup>');
+						$('#stop').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;right:-13px;">'+(Number(spincount)-1)+'</span></sup>');
 					}else{
-						$('#tunggu').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;">&#8734;</span></sup>');
-						$('#stop').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;">&#8734;</span></sup>');
+						$('#tunggu').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;right:-13px;">&#8734;</span></sup>');
+						$('#stop').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;right:-13px;">&#8734;</span></sup>');
 					}
 					setTimeout(function() {
 					spincount=0;
@@ -343,15 +365,16 @@ $(document).ready(function(){
 		},4200);
 		$('#stop').on('click',function(){
 			clearInterval(inter);
+			clearTimeout(kedipawal);
 			// console.log(spincount);
 			$('#stops').hide();
 			$('#tunggus').show();
 			if(tipe != 'unlimited'){
-				$('#tunggu').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;">'+(Number(spincount)-1)+'</span></sup>');
-				$('#stop').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;">'+(Number(spincount)-1)+'</span></sup>');
+				$('#tunggu').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;right:-13px;">'+(Number(spincount)-1)+'</span></sup>');
+				$('#stop').html('STOP <sup><span style="font-size:11px;color:lightblue;position:absolute;right:-13px;">'+(Number(spincount)-1)+'</span></sup>');
 			}else{
-				$('#tunggu').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;">&#8734;</span></sup>');
-				$('#stop').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;">&#8734;</span></sup>');
+				$('#tunggu').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;right:-13px;">&#8734;</span></sup>');
+				$('#stop').html('STOP <sup><span style="font-size:16px;color:lightblue;position:absolute;right:-13px;">&#8734;</span></sup>');
 			}
 			setTimeout(function() {
 			spincount=0;
